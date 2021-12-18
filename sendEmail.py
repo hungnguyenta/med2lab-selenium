@@ -1,7 +1,6 @@
 import sendgrid
 import os
 from sendgrid.helpers.mail import Mail, Email, To, Content, Personalization
-print(os.environ.get("SENDGRID_API_KEY"))
 
 
 def sendEmail():
