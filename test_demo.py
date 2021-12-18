@@ -26,7 +26,7 @@ class TestLoginM2LTestinSelenium():
 
     def test_loginM2LTestinSelenium(self):
         self.driver.get("https://med2lab.com/")
-        # self.driver.set_window_size(1696, 1026)
+        self.driver.set_window_size(1696, 1026)
         self.driver.find_element(By.CSS_SELECTOR, ".btn-light").click()
         self.driver.find_element(By.NAME, "email").click()
         self.driver.find_element(By.NAME, "email").send_keys(
