@@ -7,4 +7,4 @@ def pytest_terminal_summary(terminalreporter, exitstatus):
         print("TEST OK")
     else:
         print("SEND EMAIL HERE")
-        sendEmail()
+        # sendEmail()
