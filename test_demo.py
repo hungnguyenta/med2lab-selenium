@@ -15,10 +15,10 @@ import time
 
 class TestLoginM2LTestinSelenium():
     def setup_method(self, method):
-        # options = Options()
-        # options.add_argument('--headless')
-        # self.driver = webdriver.Chrome(options=options)
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument('--headless')
+        self.driver = webdriver.Chrome(options=options)
+        # self.driver = webdriver.Chrome()
         self.vars = {}
 
     def teardown_method(self, method):
