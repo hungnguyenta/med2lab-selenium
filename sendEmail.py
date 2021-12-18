@@ -49,7 +49,7 @@ message = Mail(
     is_multiple=True)
 try:
     sendgrid_client = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-
+    print(os.environ.get('SENDGRID_API_KEY'))
     response = sendgrid_client.send(message)
     print(response.status_code)
     print(response.body)
