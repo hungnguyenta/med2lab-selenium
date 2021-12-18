@@ -1,14 +1,20 @@
 import sendgrid
 import os
-from sendgrid.helpers.mail import Mail, Email, To, Content
+from sendgrid.helpers.mail import Mail, Email, To, Content, Personalization
 
 def sendEmail():
     sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("hung.nguyen@med2lab.com")  # Change to your verified sender
-    to_email = To("hung.nguyen@med2lab.com;hungnm.nazzy@gmail.com")  # Change to your recipient
+    person1 = Personalization()
+    person1.add_to(Email ("hung.nguyen@med2lab.com"))
+    person2 = Personalization()
+    person2.add_to(Email ("hungnm.nazzy@gmail.com"))
+
     subject = "Med2lab-SELENIUM Error script testing"
     content = Content("text/plain", "Hey, please take a look the scripts testing. We've got some error. Could you try at local to fix then upload the script to retry")
-    mail = Mail(from_email, to_email, subject, content)
+    mail = Mail(from_email, None, subject, content)
+    mail.add_personalization(person1)
+    mail.add_personalization(person2)
 
     # Get a JSON-ready representation of the Mail object
     mail_json = mail.get()
