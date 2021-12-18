@@ -10,8 +10,8 @@ def sendEmail():
     sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("hung.nguyen@med2lab.com")  # Change to your verified sender
     to_email = To("hung.nguyen@med2lab.com")  # Change to your recipient
-    subject = "Sending with SendGrid is Fun"
-    content = Content("text/plain", "and easy to do anywhere, even with Python")
+    subject = "Med2lab-SELENIUM Error script testing"
+    content = Content("text/plain", "Hey, please take a look the scripts testing. We've got some error. Could you try at local to fix then upload the script to retry")
     mail = Mail(from_email, to_email, subject, content)
 
     # Get a JSON-ready representation of the Mail object
