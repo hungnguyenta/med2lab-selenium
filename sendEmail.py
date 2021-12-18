@@ -3,24 +3,25 @@ import os
 from sendgrid.helpers.mail import Mail, Email, To, Content, Personalization
 
 def sendEmail():
-    sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
-
-
-    from_email = Email("hung.nguyen@med2lab.com")  # Change to your verified sender
-    # Replace these with your email addresses and names
     to_emails = [
-        ('hung.nguyen@med2lab.com', 'Steven Universe'),
-        ('Hungnm.nazzy@gmail.com', 'Garnet')
+        ('hungnm.nazzy@gmail.com', 'Steven Universe'),
+        ('hung.nguyen@med2lab.com', 'Garnet')
     ]
 
-    subject = "Med2lab-SELENIUM Error script testing"
-    content = Content("text/plain", "Hey, please take a look the scripts testing. We've got some error. Could you try at local to fix then upload the script to retry")
-    mail = Mail(from_email,to_emails,subject, content,None,None,None,is_multiple=True)
+    message = Mail(
+        from_email=('sadie@thebigdonut.party', 'Sadie Miller'),
+        subject='🍩 Donuts, at the big donut 🍩',
+        html_content='<p>Fresh donuts are out of the oven. Get them while they’re <em>hot!</em></p>',
+        # for improved deliverability, provide plain text content in addition to html content
+        plain_text_content='Fresh donuts are out of the oven. Get them while they’re hot!',
+        to_emails=to_emails,
+        is_multiple=True)
+    try:
+        sendgrid_client = sendgrid.SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
 
-    # Get a JSON-ready representation of the Mail object
-    mail_json = mail.get()
-
-    # Send an HTTP POST request to /mail/send
-    response = sg.client.mail.send.post(request_body=mail_json)
-    print(response.status_code)
-    print(response.headers)
+        response = sendgrid_client.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
