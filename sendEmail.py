@@ -15,7 +15,7 @@ def sendEmail():
 
     subject = "Med2lab-SELENIUM Error script testing"
     content = Content("text/plain", "Hey, please take a look the scripts testing. We've got some error. Could you try at local to fix then upload the script to retry")
-    mail = Mail(from_email,to_emails=to_emails,is_multiple=True, subject= subject,content = content)
+    mail = Mail(from_email,to_emails,subject, content,None,None,None,is_multiple=True)
 
     # Get a JSON-ready representation of the Mail object
     mail_json = mail.get()
