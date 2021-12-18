@@ -20,4 +20,3 @@ def sendEmail():
     # Send an HTTP POST request to /mail/send
     response = sg.client.mail.send.post(request_body=mail_json)
     print(response.status_code)
-    print(response.headers)
