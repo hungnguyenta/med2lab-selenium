@@ -9,7 +9,7 @@ def sendEmail():
     ]
 
     message = Mail(
-        from_email=('sadie@thebigdonut.party', 'Sadie Miller'),
+        from_email=('hung.nguyen@med2lab.com', 'Sadie Miller'),
         subject='🍩 Donuts, at the big donut 🍩',
         html_content='<p>Fresh donuts are out of the oven. Get them while they’re <em>hot!</em></p>',
         # for improved deliverability, provide plain text content in addition to html content
